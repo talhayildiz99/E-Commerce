@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
-    public class GetAddressByQueryHandler
+    public class GetAddressByIdQueryHandler
     {
         private readonly IRepository<Address> _repository;
 
-        public GetAddressByQueryHandler(IRepository<Address> repository)
+        public GetAddressByIdQueryHandler(IRepository<Address> repository)
         {
             _repository = repository;
         }
