@@ -21,13 +21,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7F599534-E146-4D6E-A304-194ECF0EE40F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Order.Domain", "Services\Order\Core\E-Commerce.Order.Domain\E-Commerce.Order.Domain.csproj", "{3F089A3B-4DDF-4765-8044-E8DBA9D13E98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Order.Domain", "Services\Order\Core\E-Commerce.Order.Domain\E-Commerce.Order.Domain.csproj", "{3F089A3B-4DDF-4765-8044-E8DBA9D13E98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Order.Application", "Services\Order\Core\E-Commerce.Order.Application\E-Commerce.Order.Application.csproj", "{BB4B9EDA-446C-4767-9B6C-FC463FF99B10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Order.Application", "Services\Order\Core\E-Commerce.Order.Application\E-Commerce.Order.Application.csproj", "{BB4B9EDA-446C-4767-9B6C-FC463FF99B10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Order.Persistence", "Services\Order\Infrastructure\E-Commerce.Order.Persistence\E-Commerce.Order.Persistence.csproj", "{FF073843-14D1-4C26-8676-A70FDB4632C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Order.Persistence", "Services\Order\Infrastructure\E-Commerce.Order.Persistence\E-Commerce.Order.Persistence.csproj", "{FF073843-14D1-4C26-8676-A70FDB4632C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Order.WebApi", "Services\Order\Presentation\E-Commerce.Order.WebApi\E-Commerce.Order.WebApi.csproj", "{B0F11791-BD51-4370-B47A-C6D63E66DD0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Order.WebApi", "Services\Order\Presentation\E-Commerce.Order.WebApi\E-Commerce.Order.WebApi.csproj", "{B0F11791-BD51-4370-B47A-C6D63E66DD0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{57F6E9AD-6BDA-45F1-823F-F80DD7F99FA9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.IdentityServer", "IdentityServer\E-Commerce.IdentityServer\E-Commerce.IdentityServer.csproj", "{7A15385A-ED56-47AD-B3C5-079D846E3AAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{8FAAA19B-D1D8-4E0A-BB8A-95F4849AB627}"
+	ProjectSection(SolutionItems) = preProject
+		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
+		PortainerCmd.txt = PortainerCmd.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +69,10 @@ Global
 		{B0F11791-BD51-4370-B47A-C6D63E66DD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0F11791-BD51-4370-B47A-C6D63E66DD0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0F11791-BD51-4370-B47A-C6D63E66DD0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A15385A-ED56-47AD-B3C5-079D846E3AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A15385A-ED56-47AD-B3C5-079D846E3AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A15385A-ED56-47AD-B3C5-079D846E3AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A15385A-ED56-47AD-B3C5-079D846E3AAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +90,7 @@ Global
 		{BB4B9EDA-446C-4767-9B6C-FC463FF99B10} = {DBAE3524-4181-4EED-841B-4FCC485A62BB}
 		{FF073843-14D1-4C26-8676-A70FDB4632C8} = {3951C3AC-19A1-4326-A9CE-7D9FC0C66E9E}
 		{B0F11791-BD51-4370-B47A-C6D63E66DD0B} = {7F599534-E146-4D6E-A304-194ECF0EE40F}
+		{7A15385A-ED56-47AD-B3C5-079D846E3AAE} = {57F6E9AD-6BDA-45F1-823F-F80DD7F99FA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38C149AE-18EA-4319-B745-2A9A346666DC}
