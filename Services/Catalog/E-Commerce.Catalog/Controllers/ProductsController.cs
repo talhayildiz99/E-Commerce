@@ -2,11 +2,13 @@
 using E_Commerce.Catalog.Dtos.ProductDtos;
 using E_Commerce.Catalog.Services.CategoryServices;
 using E_Commerce.Catalog.Services.ProductServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Catalog.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Catalog.Dtos.ProductDetailDtos;
 using E_Commerce.Catalog.Services.ProductDetailServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

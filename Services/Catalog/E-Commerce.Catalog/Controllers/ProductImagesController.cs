@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Catalog.Dtos.ProductImageDtos;
 using E_Commerce.Catalog.Services.ProductImageServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
