@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>E_Commerce.Cargo.WebApi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.36" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.36">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.36">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-Commerce.Cargo.BusinessLayer\E-Commerce.Cargo.BusinessLayer.csproj" />
+    <ProjectReference Include="..\E-Commerce.Cargo.DataAccessLayer\E-Commerce.Cargo.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\E-Commerce.Cargo.DtoLayer\E-Commerce.Cargo.DtoLayer.csproj" />
+    <ProjectReference Include="..\E-Commerce.Cargo.EntityLayer\E-Commerce.Cargo.EntityLayer.csproj" />
+  </ItemGroup>
+
+</Project>
