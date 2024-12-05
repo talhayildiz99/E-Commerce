@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+            <li class="breadcrumb-item active">Ürün Listesi</li>
+        </ul>
+    </div>
+</div>
+
+@await Component.InvokeAsync("_SliderDefaultComponentPartial")
+
