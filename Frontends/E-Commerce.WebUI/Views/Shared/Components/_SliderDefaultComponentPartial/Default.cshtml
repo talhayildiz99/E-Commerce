@@ -34,44 +34,29 @@
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
                     <div class="header-slider-item">
-                        <img src="~/ecommerce-html-template/img/slider-1.jpg" alt="Slider Image" />
+                        <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=600&h=4000&dpr=1" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>Tarzın Sırrı Bizde Saklı, Şimdi Keşfet!</p>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
                         </div>
                     </div>
                     <div class="header-slider-item">
-                        <img src="~/ecommerce-html-template/img/slider-2.jpg" alt="Slider Image" />
+                        <img src="https://images.pexels.com/photos/5709665/pexels-photo-5709665.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>Sadece Alışveriş Değil, Kendinizi Yenileme Yolculuğu!</p>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
                         </div>
                     </div>
                     <div class="header-slider-item">
-                        <img src="~/ecommerce-html-template/img/slider-3.jpg" alt="Slider Image" />
+                        <img src="https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=6000&h=400&dpr=1" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>Dolabınıza Yeni Bir Hikâye Yazmaya Hazır mısınız?</p>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="header-img">
-                    <div class="img-item">
-                        <img src="~/ecommerce-html-template/img/category-1.jpg" />
-                        <a class="img-text" href="">
-                            <p>Some text goes here that describes the image</p>
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <img src="~/ecommerce-html-template/img/category-2.jpg" />
-                        <a class="img-text" href="">
-                            <p>Some text goes here that describes the image</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("_TopDiscountComponentPartial")
         </div>
     </div>
 </div>
