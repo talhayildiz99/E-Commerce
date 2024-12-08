@@ -8,33 +8,18 @@
 
 @await Component.InvokeAsync("_HeaderUILayoutComponentPartial")
 
-
 <body>
-    <!-- Top bar Start -->
     @await Component.InvokeAsync("_TopBarUILayoutComponentPartial")
-    <!-- Top bar End -->
-    <!-- Nav Bar Start -->
+
     @await Component.InvokeAsync("_NavBarUILayoutComponentPartial")
-    <!-- Nav Bar End -->
-    <!-- Bottom Bar Start -->
+
     @await Component.InvokeAsync("_BottomBarUILayoutComponentPartial")
-    <!-- Bottom Bar End -->
-    <!-- Breadcrumb Start -->
+
     @RenderBody()
-    <!-- Breadcrumb End -->
-    <!-- Contact Start -->
-    <!-- Contact End -->
-    <!-- Footer Start -->
+
     @await Component.InvokeAsync("_FooterUILayoutComponentPartial")
-   
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="~/ecommerce-html-template/lib/easing/easing.min.js"></script>
-    <script src="~/ecommerce-html-template/lib/slick/slick.min.js"></script>
+    @await Component.InvokeAsync("_ScriptUILayoutComponentPartial")
 
-    <!-- Template Javascript -->
-    <script src="~/ecommerce-html-template/js/main.js"></script>
 </body>
 </html>
