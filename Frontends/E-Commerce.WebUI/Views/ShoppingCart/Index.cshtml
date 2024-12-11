@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Ürün</a></li>
+            <li class="breadcrumb-item active">Sepet</li>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Cart Start -->
+<div class="cart-page">
+    <div class="container-fluid">
+        <div class="row">
+            @await Component.InvokeAsync("_ShoppingCartProductListComponentPartial")
+            @await Component.InvokeAsync("_ShoppingCartDiscountCouponComponentPartial")
+        </div>
+    </div>
+</div>
+<!-- Cart End -->
+
