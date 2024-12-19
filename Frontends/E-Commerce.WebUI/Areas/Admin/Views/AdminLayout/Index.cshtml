@@ -1,5 +1,4 @@
-﻿﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -12,13 +11,15 @@
 
         <!-- Main Header -->
         @await Component.InvokeAsync("_AdminLayoutHeaderComponentPartial")
-
+     
 
         <!-- Left side column. contains the logo and sidebar -->
+        
         @await Component.InvokeAsync("_AdminLayoutSidebarComponentPartial")
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+            
             @await Component.InvokeAsync("_AdminLayoutMainSectionViewbagComponentPartial")
 
             <!-- Main content -->
