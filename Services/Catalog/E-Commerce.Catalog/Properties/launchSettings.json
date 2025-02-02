@@ -12,7 +12,7 @@
     "E_Commerce.Catalog": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
+      "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7060;",
       "environmentVariables": {

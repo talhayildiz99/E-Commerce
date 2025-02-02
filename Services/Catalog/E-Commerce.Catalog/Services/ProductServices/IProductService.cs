@@ -1,4 +1,4 @@
-﻿using E_Commerce.Catalog.Dtos.ProductDtos;
+﻿ using E_Commerce.Catalog.Dtos.ProductDtos;
 
 namespace E_Commerce.Catalog.Services.ProductServices
 {
@@ -9,6 +9,7 @@ namespace E_Commerce.Catalog.Services.ProductServices
         Task UpdateProductAsync(UpdateProductDto productDto);
         Task DeleteProductAsync(string id);
         Task<GetByIdProductDto> GetByIdProductAsync(string id);
+        Task<List<ResultProductsWithCategoryDto>> GetProductsWithCategoryAsync();
 
     }
 }

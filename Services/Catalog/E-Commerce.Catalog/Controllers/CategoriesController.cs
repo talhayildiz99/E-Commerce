@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Catalog.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -26,7 +26,7 @@ namespace E_Commerce.Catalog.Controllers
         } 
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCategoryBtId(string id)
+        public async Task<IActionResult> GetCategoryById(string id)
         {
             var values = await _categoryService.GetByIdCategoryAsync(id);
             return Ok(values);

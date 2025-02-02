@@ -1,25 +1,29 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
+
 @await Component.InvokeAsync("_AdminLayoutHeadComponentPartial")
+
 
 <body class="sidebar-mini">
     <div class="wrapper">
 
         <!-- Main Header -->
+
         @await Component.InvokeAsync("_AdminLayoutHeaderComponentPartial")
-     
 
         <!-- Left side column. contains the logo and sidebar -->
-        
+
         @await Component.InvokeAsync("_AdminLayoutSidebarComponentPartial")
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            
+
             @await Component.InvokeAsync("_AdminLayoutMainSectionViewbagComponentPartial")
 
             <!-- Main content -->
@@ -30,7 +34,7 @@
         <!-- Main Footer -->
         <footer class="main-footer dark-bg">
             <div class="pull-right hidden-xs"> Version 1.0</div>
-            Copyright &copy; @DateTime.Now.Year MultiShop | Tüm Hakları Saklıdır.
+            Copyright &copy; @DateTime.Now.Year E-Commerce (Talha Yıldız) | Tüm Hakları Saklıdır.
         </footer>
     </div>
     <!-- wrapper -->

@@ -9,5 +9,7 @@ namespace E_Commerce.Catalog.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string CategoryID { get; set; }
         public string CategoryName { get; set; }
+        public string ImageUrl { get; set; }
+        public string Size { get; set; }
     }
 }

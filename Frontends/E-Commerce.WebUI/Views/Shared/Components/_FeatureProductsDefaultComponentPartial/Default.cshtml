@@ -1,93 +1,80 @@
-﻿<div class="featured-product product">
+﻿@model List<ResultProductDto>
+
+<style>
+    .product-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .product-image {
+        display: flex;
+        justify-content: center; /* Yatayda ortalama */
+        align-items: center; /* Dikeyde ortalama */
+        height: 400px; /* Tüm resimlerin aynı yükseklikte olması için */
+        overflow: hidden; /* Büyük resimleri keser */
+    }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmin kırpılmasını sağlar ama boyutu eşit tutar */
+            display: block;
+        }
+
+    .product-price {
+        text-align: left;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .btn {
+        background-color: #ff6b6b;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn i {
+            margin-right: 5px;
+        }
+</style>
+
+<div class="featured-product product">
     <div class="container-fluid">
         <div class="section-header">
             <h1>Öne Çıkan Ürünler</h1>
         </div>
         <div class="row align-items-center product-slider product-slider-4">
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="#">Siyah Elbise</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3">
+                    <div class="product-item">
+                        <div class="product-title">
+                            <a href="#">@item.ProductName</a>
+                            <div class="ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="~/ecommerce-html-template/img/product-1.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                            <a href="#"><i class="fa fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-search"></i></a>
+                        <div class="product-image">
+                            <a href="product-detail.html">
+                                <img src="@item.ProductImageUrl" alt="Product Image">
+                            </a>
                         </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>₺</span>399</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Hemen Satın Al</a>
+                        <div class="product-price">
+                            <h3><span>₺</span>@item.ProductPrice</h3>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i> Hemen Satın Al</a>
+                        </div>
                     </div>
                 </div>
-            </div> @* Bu ürünü tek bırak son ikisini sil *@
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="#">Mavi Beyaz Triko</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="~/ecommerce-html-template/img/product-2.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                            <a href="#"><i class="fa fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>₺</span>299</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Hemen Satın Al</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="#">Turkuaz Elbise</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="~/ecommerce-html-template/img/product-3.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                            <a href="#"><i class="fa fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>₺</span>799</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Hemen Satın Al</a>
-                    </div>
-                </div>
-            </div> 
+            }
         </div>
     </div>
 </div>

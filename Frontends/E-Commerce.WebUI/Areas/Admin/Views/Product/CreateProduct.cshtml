@@ -1,5 +1,4 @@
 ﻿@model CreateProductDto
-
 @{
     ViewData["Title"] = "CreateProduct";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
@@ -25,7 +24,7 @@
                         <input type="text" class="form-control" asp-for="ProductImageUrl" />
                         <br />
                         <label>Ürün Kategorisi</label>
-                        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.CategoryValues,new {@class="form-control"})
+                        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.CategoryValues, new { @class = "form-control" })
                         <br />
                         <label>Ürün Açıklaması</label>
                         <textarea class="form-control" asp-for="ProductDescription" rows="5"></textarea>
@@ -37,3 +36,4 @@
         </div>
     </div>
 </section>
+

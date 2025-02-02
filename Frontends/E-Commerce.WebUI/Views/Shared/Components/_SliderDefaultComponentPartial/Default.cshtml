@@ -1,59 +1,50 @@
-﻿<div class="header">
+﻿@model List<ResultFeatureSliderDto>
+
+<div class="header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
                 <nav class="navbar bg-light">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-home"></i>Home</a>
+                            <a class="nav-link" href="#"><i class="fa fa-home"></i>Anasayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i>Best Selling</a>
+                            <a class="nav-link" href="#"><i class="fa fa-shopping-bag"></i>Çok Satanlar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>New Arrivals</a>
+                            <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>Moda ve Giyim</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>
+                            <a class="nav-link" href="#"><i class="fa fa-female"></i>Elektronik</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-child"></i>Kids & Babies Clothes</a>
+                            <a class="nav-link" href="#"><i class="fa fa-child"></i>Ev ve Yaşam</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Men & Women Clothes</a>
+                            <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Spor ve Outdoor</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Gadgets & Accessories</a>
+                            <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Kozmetik ve Kişisel Bakım</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-microchip"></i>Electronics & Accessories</a>
+                            <a class="nav-link" href="#"><i class="fa fa-microchip"></i>Kitap, Hobi ve Oyuncak</a>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
-                    <div class="header-slider-item">
-                        <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=600&h=4000&dpr=1" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Tarzın Sırrı Bizde Saklı, Şimdi Keşfet!</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
+                    @foreach(var item in Model)
+                    {
+                        <div class="header-slider-item">
+                            <img src="@item.ImageUrl" alt="Slider Image" />
+                            <div class="header-slider-caption">
+                                <p>@item.Description</p>
+                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="header-slider-item">
-                        <img src="https://images.pexels.com/photos/5709665/pexels-photo-5709665.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Sadece Alışveriş Değil, Kendinizi Yenileme Yolculuğu!</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
-                        </div>
-                    </div>
-                    <div class="header-slider-item">
-                        <img src="https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=6000&h=400&dpr=1" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Dolabınıza Yeni Bir Hikâye Yazmaya Hazır mısınız?</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Alışveriş Yap</a>
-                        </div>
-                    </div>
+                    }          
                 </div>
             </div>
             @await Component.InvokeAsync("_TopDiscountComponentPartial")

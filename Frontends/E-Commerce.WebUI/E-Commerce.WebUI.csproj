@@ -22,15 +22,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.18" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\Catalog\E-Commerce.Catalog\E-Commerce.Catalog.csproj" />
+    <ProjectReference Include="..\E-Commerce.DtoLayer\E-Commerce.DtoLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\E-Commerce.DtoLayer\E-Commerce.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>

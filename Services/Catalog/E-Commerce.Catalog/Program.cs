@@ -1,7 +1,12 @@
+using E_Commerce.Catalog.Services.AboutServices;
 using E_Commerce.Catalog.Services.CategoryServices;
+using E_Commerce.Catalog.Services.FeatureServices;
+using E_Commerce.Catalog.Services.FeatureSliderServices;
 using E_Commerce.Catalog.Services.ProductDetailServices;
 using E_Commerce.Catalog.Services.ProductImageServices;
 using E_Commerce.Catalog.Services.ProductServices;
+using E_Commerce.Catalog.Services.TopDiscountServices;
+using E_Commerce.Catalog.Services.VendorServices;
 using E_Commerce.Catalog.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
@@ -20,6 +25,11 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDetailService, ProductDetailService>();
 builder.Services.AddScoped<IProductImageService, ProductImageService>();
+builder.Services.AddScoped<IFeatureSliderService, FeatureSliderService>();
+builder.Services.AddScoped<ITopDiscountService, TopDiscountService>();
+builder.Services.AddScoped<IFeatureService, FeatureService>();
+builder.Services.AddScoped<IVendorService, VendorService>();
+builder.Services.AddScoped<IAboutService, AboutService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
