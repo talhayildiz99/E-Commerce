@@ -1,25 +1,26 @@
-﻿using E_Commerce.DtoLayer.CatalogDtos.ProductDtos;
+﻿using E_Commerce.DtoLayer.CatalogDtos.CategoryDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace E_Commerce.WebUI.ViewComponents.ProductListViewComponents
 {
-    public class _ProductListComponentPartial : ViewComponent
+    public class _ProductListCategoryComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _ProductListComponentPartial(IHttpClientFactory httpClientFactory)
+        public _ProductListCategoryComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync(string id)
+
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7060/api/Products/ProductListWithCategoryByCategoryId?id=" + id);
+            var responseMessage = await client.GetAsync("https://localhost:7060/api/Categories");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
                 return View(values);
             }
 

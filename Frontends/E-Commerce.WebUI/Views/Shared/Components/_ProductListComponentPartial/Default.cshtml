@@ -1,28 +1,94 @@
-﻿<div class="col-md-4">
-    <div class="product-item">
-        <div class="product-title">
-            <a href="#">Siyah Elbise</a>
-            <div class="ratting">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
+﻿@model List<ResultProductWithCategoryDto>
+
+<style>
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px; /* Kartların eşit yükseklikte olması için */
+    width: 100%;
+    min-width: 250px; /* Kartların daralmasını engeller */
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Tüm resimler aynı yükseklikte olacak */
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi kırpar ama aynı hizada tutar */
+    display: block;
+}
+
+.product-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+</style>
+
+<div class="row g-3 justify-content-start">
+    @foreach (var item in Model)
+    {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+            <div class="product-item">
+                <div class="product-title">
+                    <a href="#">@item.ProductName</a>
+                    <div class="ratting">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="product-image">
+                    <a href="product-detail.html">
+                        <img src="@item.ProductImageUrl" alt="Product Image">
+                    </a>
+                </div>
+                <div class="product-price">
+                    <h3><span>₺</span>@item.ProductPrice</h3>
+                    <a class="btn" href=""><i class="fa fa-shopping-cart"></i> Satın Al</a>
+                </div>
             </div>
         </div>
-        <div class="product-image">
-            <a href="product-detail.html">
-                <img src="~/ecommerce-html-template/img/product-1.jpg" alt="Product Image">
-            </a>
-            <div class="product-action">
-                <a href="#"><i class="fa fa-cart-plus"></i></a>
-                <a href="#"><i class="fa fa-heart"></i></a>
-                <a href="#"><i class="fa fa-search"></i></a>
-            </div>
-        </div>
-        <div class="product-price">
-            <h3><span>₺</span>399</h3>
-            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Hemen Satın Al</a>
-        </div>
-    </div>
+    }
 </div>
