@@ -54,7 +54,7 @@
                 <div class="col-lg-3">
                     <div class="product-item">
                         <div class="product-title">
-                            <a href="#">@item.ProductName</a>
+                            <a href="/ProductList/ProductDetail/@item.ProductId">@item.ProductName</a>
                             <div class="ratting">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -64,13 +64,13 @@
                             </div>
                         </div>
                         <div class="product-image">
-                            <a href="product-detail.html">
+                            <a href="/ProductList/ProductDetail/@item.ProductId">
                                 <img src="@item.ProductImageUrl" alt="Product Image">
                             </a>
                         </div>
                         <div class="product-price">
                             <h3><span>₺</span>@item.ProductPrice</h3>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i> Hemen Satın Al</a>
+                            <a class="btn" href="/ProductList/ProductDetail/@item.ProductId"><i class="fa fa-shopping-cart"></i> Hemen Satın Al</a>
                         </div>
                     </div>
                 </div>

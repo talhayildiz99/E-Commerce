@@ -1,16 +1,19 @@
-﻿<div class="col-md-7">
+﻿@model UpdateProductDto
+
+<div class="col-md-7">
     <div class="product-content">
-        <div class="title"><h2>Siyah Elbise</h2></div>
+        <div class="title"><h2>@Model.ProductName</h2></div>
         <div class="ratting">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
+            <h7>0 Değerlendirme</h7>
         </div>
         <div class="price">
             <h4>Fiyat:</h4>
-            <p>₺399 <span>₺449</span></p>
+            <p>₺@Model.ProductPrice <span></span></p>
         </div>
         <div class="quantity">
             <h4>Adet:</h4>
