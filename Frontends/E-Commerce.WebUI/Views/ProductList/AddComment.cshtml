@@ -1,0 +1,26 @@
+﻿<div class="reviews-submit">
+    <h4>Yorum Yap:</h4>
+    <div class="ratting">
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+    </div>
+    <form method="post" asp-action="AddComment" asp-controller="ProductList">
+    <div class="row form">
+        <div class="col-sm-6">
+            <input type="text" placeholder="Adınız Soyadınız" name="NameSurname">
+        </div>
+        <div class="col-sm-6">
+            <input type="email" placeholder="Mail Adresiniz" name="Email">
+        </div>
+        <div class="col-sm-12">
+            <textarea placeholder="Görüşünüz" name="CommentDetail"></textarea>
+        </div>
+        <div class="col-sm-12">
+            <button type="submit" style="background-color: #FF6F61; color: white; padding: 10px 20px; border: none; border-radius: 4px;">Gönder</button>
+        </div>
+    </div>
+    </form>
+</div>
