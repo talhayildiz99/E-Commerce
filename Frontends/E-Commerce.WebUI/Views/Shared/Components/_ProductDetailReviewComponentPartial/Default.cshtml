@@ -1,19 +1,32 @@
-﻿<div id="reviews" class="container tab-pane fade">
-    <div class="reviews-submitted">
-        <div class="reviewer">Phasellus Gravida - <span>01 Jan 2020</span></div>
-        <div class="ratting">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
+﻿@model List<ResultCommentDto>
+
+<div id="reviews" class="container tab-pane fade">
+    @foreach (var item in Model)
+    {
+        <div class="reviews-submitted" style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <!-- Resim Alanı -->
+            <div class="reviewer-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
+                <img src="@item.ImageUrl" alt="Reviewer Image" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+
+            <!-- Yorum Alanı -->
+            <div>
+                <div class="reviewer" style="font-weight: bold; color: #4A90E2;">@item.NameSurname - <span style="color: gray;">@item.CreatedDate.ToShortDateString()</span></div>
+                <div class="ratting" style="color: #FF6F61;">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <i class="@(i <= item.Rating ? "fa fa-star" : "far fa-star")"></i>
+                    }
+                </div>
+
+                <p style="margin: 5px 0;">@item.CommentDetail</p>
+            </div>
         </div>
-        <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-        </p>
-    </div>
+    }
+
+    <!-- Yorum Ekleme Alanı -->
     <div class="reviews-submit">
-        <h4>Give your Review:</h4>
+        <h4>Yorum Yap:</h4>
         <div class="ratting">
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
@@ -23,16 +36,16 @@
         </div>
         <div class="row form">
             <div class="col-sm-6">
-                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Adınız Soyadınız">
             </div>
             <div class="col-sm-6">
-                <input type="email" placeholder="Email">
+                <input type="email" placeholder="Mail Adresiniz">
             </div>
             <div class="col-sm-12">
-                <textarea placeholder="Review"></textarea>
+                <textarea placeholder="Görüşünüz"></textarea>
             </div>
             <div class="col-sm-12">
-                <button>Submit</button>
+                <button style="background-color: #FF6F61; color: white; padding: 10px 20px; border: none; border-radius: 4px;">Gönder</button>
             </div>
         </div>
     </div>
