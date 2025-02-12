@@ -1,4 +1,5 @@
-﻿
+﻿@model CreateLoginDto
+
 @{
     Layout = null;
 }
@@ -76,11 +77,11 @@
 			<form class="form-detail" method="post" id="loginForm">
 				<div class="form-row">
 					<label for="username">KULLANICI ADI</label>
-					<input type="text" id="username" class="input-text" name="Username" required>
+					<input type="text" id="username" asp-for="Username" class="input-text" name="Username" required>
 				</div>
 				<div class="form-row password-container">
 					<label for="password">ŞİFRE</label>
-					<input type="password" id="password" class="input-text" name="Password" required>
+					<input type="password" id="password" asp-for="Password" class="input-text" name="Password" required>
 					<span class="password-toggle" onclick="togglePassword('password')">👁️</span>
 				</div>
 				<div class="form-row-last">
