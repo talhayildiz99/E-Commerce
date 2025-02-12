@@ -1,0 +1,168 @@
+﻿@model CreateRegisterDto
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>E-Commerce - Kayıt Ol</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="~/register_template/css/opensans-font.css">
+	<link rel="stylesheet" type="text/css" href="~/register_template/fonts/line-awesome/css/line-awesome.min.css">
+	<!-- Jquery -->
+	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+	<!-- Main Style Css -->
+	<link rel="stylesheet" href="~/register_template/css/style.css" />
+	<style>
+		.form-left img {
+			width: 100%;
+			height: 700px;
+			object-fit: cover;
+		}
+
+		.form-v7-content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 20px;
+		}
+
+		.password-toggle {
+			cursor: pointer;
+			position: absolute;
+			right: 15px;
+			top: 35px;
+		}
+
+		.password-container {
+			position: relative;
+		}
+
+		.register {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 12px 24px;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+			.register:hover {
+				background-color: #45a049;
+			}
+	</style>
+</head>
+<body class="form-v7">
+	<div class="page-content">
+		<div class="form-v7-content">
+			<div class="form-left">
+				<img src="~/register_template/images/form-v7.jpg" alt="form">
+				<p class="text-1">Kayıt Ol</p>
+				<p class="text-2">Gizlilik Politikası & Hizmet Şartları</p>
+			</div>
+			<form class="form-detail" method="post" id="myform">
+				<div class="form-row">
+					<label for="first_name">AD</label>
+					<input type="text" asp-for="Name" id="first_name" class="input-text" name="Name" required>
+				</div>
+				<div class="form-row">
+					<label for="last_name">SOYAD</label>
+					<input type="text" asp-for="Surname" id="last_name" class="input-text" name="Surname" required>
+				</div>
+				<div class="form-row">
+					<label for="username">KULLANICI ADI</label>
+					<input type="text" asp-for="Username" id="username" class="input-text" name="Username" required>
+				</div>
+				<div class="form-row">
+					<label for="your_email">E-POSTA</label>
+					<input type="email" asp-for="Email" id="your_email" class="input-text" name="Email" required>
+				</div>
+				<div class="form-row password-container">
+					<label for="password">ŞİFRE</label>
+					<input type="password" asp-for="Password" id="password" class="input-text" name="Password" required>
+					<span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+				</div>
+				<div class="form-row password-container">
+					<label for="comfirm_password">ŞİFREYİ ONAYLA</label>
+					<input type="password" asp-for="ConfirmPassword" id="comfirm_password" class="input-text" name="ConfirmPassword" required>
+					<span class="password-toggle" onclick="togglePassword('comfirm_password')">👁️</span>
+				</div>
+				<div class="form-row-last">
+					<button type="submit" class="register">Kayıt Ol</button>
+					<p>veya<a href="/Login/Index/">Giriş Yap</a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+	<script>
+		function togglePassword(id) {
+			const passwordField = document.getElementById(id);
+			const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+			passwordField.setAttribute('type', type);
+		}
+
+		jQuery.validator.setDefaults({
+			debug: false,
+			success: function (label) {
+				label.attr('id', 'valid');
+			},
+		});
+		$("#myform").validate({
+			rules: {
+				Name: {
+					required: true
+				},
+				Surname: {
+					required: true
+				},
+				Username: {
+					required: true
+				},
+				Email: {
+					required: true,
+					email: true
+				},
+				Password: {
+					required: true
+				},
+				ConfirmPassword: {
+					required: true,
+					equalTo: "#password"
+				}
+			},
+			messages: {
+				Name: {
+					required: "Lütfen Adınızı Girin"
+				},
+				Surname: {
+					required: "Lütfen Soyadınızı Girin"
+				},
+				Username: {
+					required: "Lütfen Bir Kullanıcı Adı Girin"
+				},
+				Email: {
+					required: "Lütfen Bir E-Posta Adresi Girin",
+					email: "Geçerli bir e-posta adresi girin"
+				},
+				Password: {
+					required: "Lütfen Bir Şifre Girin"
+				},
+				ConfirmPassword: {
+					required: "Lütfen Bir Şifre Onayı Girin",
+					equalTo: "Şifreler Uyuşmuyor"
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -38,6 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
 		PortainerCmd.txt = PortainerCmd.txt
 		PortNumbers.txt = PortNumbers.txt
+		UserExample.txt = UserExample.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{698D86BD-96C6-47B4-951F-9FBF2B691D0B}"
@@ -64,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.DtoLayer", "Fron
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comment", "Comment", "{0D9EE2A3-7563-43D3-9AEB-EEC04AF0F578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Comment", "Services\Comment\E-Commerce.Comment\E-Commerce.Comment.csproj", "{D4522569-5886-4BC3-A5AA-759674D45845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Comment", "Services\Comment\E-Commerce.Comment\E-Commerce.Comment.csproj", "{D4522569-5886-4BC3-A5AA-759674D45845}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
