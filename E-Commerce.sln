@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{8FAAA19B-D1D8-4E0A-BB8A-95F4849AB627}"
 	ProjectSection(SolutionItems) = preProject
 		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
+		OcelotCodeExample.txt = OcelotCodeExample.txt
 		OcelotLink.txt = OcelotLink.txt
 		PortainerCmd.txt = PortainerCmd.txt
 		PortNumbers.txt = PortNumbers.txt

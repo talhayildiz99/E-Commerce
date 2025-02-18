@@ -1,44 +1,5 @@
-{
-  "Routes": [
-    //Catalog Mikroservis
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7060
-        }
-      ],
-      "UpstreamPathTemplate": "/services/catalog/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "CatalogFullPermission" ]
-      }
-    },
-
-    //Discount Mikroservis
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7061
-        }
-      ],
-      "UpstreamPathTemplate": "/services/discount/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "DiscountFullPermission" ]
-      }
-    },
-
-    //Order Mikroservis
+ 
+    //Order Microservices
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -53,11 +14,10 @@
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "OrderFullPermisson" ]
+        "AllowedScopes": [ "OrderFullPermission" ]
       }
     },
-
-    //Cargo Mikroservis
+    //Cargo Microservices
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -75,8 +35,7 @@
         "AllowedScopes": [ "CargoFullPermission" ]
       }
     },
-
-    //Basket Mikroservis
+    //Basket Microservices
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -94,8 +53,7 @@
         "AllowedScopes": [ "BasketFullPermission" ]
       }
     },
-
-    //Comment Mikroservis
+    //Comment Microservices
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -113,8 +71,7 @@
         "AllowedScopes": [ "CommentFullPermission" ]
       }
     },
-
-    //Payment Mikroservis
+    //Payment Microservices
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -132,8 +89,7 @@
         "AllowedScopes": [ "PaymentFullPermission" ]
       }
     },
-
-    //Images Mikroservis
+    //Images Microservices
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -148,11 +104,6 @@
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "ImageFullPermission" ]
+        "AllowedScopes": [ "ImagesFullPermission" ]
       }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000"
-  }
-}

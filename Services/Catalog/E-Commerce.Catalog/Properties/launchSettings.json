@@ -12,9 +12,9 @@
     "E_Commerce.Catalog": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7060;",
+      "applicationUrl": "http://localhost:7060;",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
