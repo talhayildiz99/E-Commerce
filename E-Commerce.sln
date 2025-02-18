@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{8FAAA19B-D1D8-4E0A-BB8A-95F4849AB627}"
 	ProjectSection(SolutionItems) = preProject
 		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
+		OcelotLink.txt = OcelotLink.txt
 		PortainerCmd.txt = PortainerCmd.txt
 		PortNumbers.txt = PortNumbers.txt
 		UserExample.txt = UserExample.txt
@@ -66,6 +67,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comment", "Comment", "{0D9EE2A3-7563-43D3-9AEB-EEC04AF0F578}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Comment", "Services\Comment\E-Commerce.Comment\E-Commerce.Comment.csproj", "{D4522569-5886-4BC3-A5AA-759674D45845}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{0E3D67E3-9208-4DD3-8EFC-248DD7F1F012}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{45592053-BDE6-4ACD-9557-B2D6CBDE2869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.OcelotGateway", "ApiGateway\E-Commerce.OcelotGateway\E-Commerce.OcelotGateway.csproj", "{160E7877-4166-4269-BB85-7735DA243660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{8AE0D8F2-32D7-4E64-AD0D-F8E529DF7358}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Payment", "Services\Payment\E-Commerce.Payment\E-Commerce.Payment.csproj", "{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F371F85B-FDBD-4AE7-897A-8D81761679EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Images", "Services\Images\E-Commerce.Images\E-Commerce.Images.csproj", "{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +152,18 @@ Global
 		{D4522569-5886-4BC3-A5AA-759674D45845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4522569-5886-4BC3-A5AA-759674D45845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4522569-5886-4BC3-A5AA-759674D45845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160E7877-4166-4269-BB85-7735DA243660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160E7877-4166-4269-BB85-7735DA243660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160E7877-4166-4269-BB85-7735DA243660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160E7877-4166-4269-BB85-7735DA243660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +194,11 @@ Global
 		{BD6D5E44-1068-472F-A025-C59EAFD4FCA4} = {29196E21-1F83-4DC8-AF47-62DA11DAD4E2}
 		{0D9EE2A3-7563-43D3-9AEB-EEC04AF0F578} = {39673C8F-D69D-4865-93A8-7496D990C1BF}
 		{D4522569-5886-4BC3-A5AA-759674D45845} = {0D9EE2A3-7563-43D3-9AEB-EEC04AF0F578}
+		{160E7877-4166-4269-BB85-7735DA243660} = {0E3D67E3-9208-4DD3-8EFC-248DD7F1F012}
+		{8AE0D8F2-32D7-4E64-AD0D-F8E529DF7358} = {39673C8F-D69D-4865-93A8-7496D990C1BF}
+		{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5} = {8AE0D8F2-32D7-4E64-AD0D-F8E529DF7358}
+		{F371F85B-FDBD-4AE7-897A-8D81761679EE} = {39673C8F-D69D-4865-93A8-7496D990C1BF}
+		{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65} = {F371F85B-FDBD-4AE7-897A-8D81761679EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38C149AE-18EA-4319-B745-2A9A346666DC}

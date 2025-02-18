@@ -43,30 +43,30 @@ namespace E_Commerce.IdentityServer
             //Visitor
             new Client
             {
-                ClientId = "E-CommerceVisitorId",
-                ClientName ="E-Commerce Visitor User",
+                ClientId = "ECommerceVisitorId",
+                ClientName ="ECommerce Visitor User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets= {new Secret("e-commercesecret".Sha256()) },
-                AllowedScopes ={ "DiscountFullPermission" }
+                ClientSecrets= {new Secret("ecommercesecret".Sha256()) },
+                AllowedScopes ={ "CatalogReadPermission" , "CatalogFullPermission" }
             },
 
             //Manager
             new Client
             {
-                ClientId = "E-CommerceManagerId",
-                ClientName ="E-Commerce Manager User",
+                ClientId = "ECommerceManagerId",
+                ClientName ="ECommerce Manager User",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                ClientSecrets= {new Secret("e-commercesecret".Sha256()) },
-                AllowedScopes ={ "CatalogReadPermission", "CatalogFullPermission" }
+                ClientSecrets= {new Secret("ecommercesecret".Sha256()) },
+                AllowedScopes ={ "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission" }
             },
 
             //Admin
             new Client
             {
-                ClientId = "E-CommerceAdminId",
-                ClientName ="E-Commerce Admin User",
+                ClientId = "ECommerceAdminId",
+                ClientName ="ECommerce Admin User",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                ClientSecrets= {new Secret("e-commercesecret".Sha256()) },
+                ClientSecrets= {new Secret("ecommercesecret".Sha256()) },
                 AllowedScopes ={ "CatalogFullPermission", "CatalogReadPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission", "BasketFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,

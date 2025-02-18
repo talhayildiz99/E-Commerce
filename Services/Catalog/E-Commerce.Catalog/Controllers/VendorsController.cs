@@ -1,10 +1,12 @@
 ﻿using E_Commerce.Catalog.Dtos.VendorDtos;
 using E_Commerce.Catalog.Services.VendorServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Catalog.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class VendorsController : ControllerBase

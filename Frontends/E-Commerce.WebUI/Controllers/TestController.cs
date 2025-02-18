@@ -1,20 +1,21 @@
-﻿using E_Commerce.DtoLayer.CatalogDtos.AboutDtos;
+﻿using E_Commerce.DtoLayer.CatalogDtos.CategoryDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 
-namespace E_Commerce.WebUI.ViewComponents.UILayoutViewComponents
+namespace E_Commerce.WebUI.Controllers
 {
-    public class _FooterUILayoutComponentPartial : ViewComponent
+    public class TestController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _FooterUILayoutComponentPartial(IHttpClientFactory httpClientFactory)
+        public TestController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+
+        public async Task<IActionResult> Index()
         {
             string token = "";
             using (var httpclient = new HttpClient())
@@ -43,15 +44,20 @@ namespace E_Commerce.WebUI.ViewComponents.UILayoutViewComponents
 
             var client = _httpClientFactory.CreateClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            var responseMessage = await client.GetAsync("https://localhost:7060/api/Abouts");
+            
+            var responseMessage = await client.GetAsync("https://localhost:7060/api/Categories");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
                 return View(values);
             }
 
+            return View();
+        }
+
+        public IActionResult Deneme1()
+        {
             return View();
         }
     }
