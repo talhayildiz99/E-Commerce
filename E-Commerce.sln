@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{8FAAA19B-D1D8-4E0A-BB8A-95F4849AB627}"
 	ProjectSection(SolutionItems) = preProject
 		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
+		LoginIndex.txt = LoginIndex.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
 		OcelotLink.txt = OcelotLink.txt
 		PortainerCmd.txt = PortainerCmd.txt
@@ -73,15 +74,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{45592053-BDE6-4ACD-9557-B2D6CBDE2869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.OcelotGateway", "ApiGateway\E-Commerce.OcelotGateway\E-Commerce.OcelotGateway.csproj", "{160E7877-4166-4269-BB85-7735DA243660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.OcelotGateway", "ApiGateway\E-Commerce.OcelotGateway\E-Commerce.OcelotGateway.csproj", "{160E7877-4166-4269-BB85-7735DA243660}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{8AE0D8F2-32D7-4E64-AD0D-F8E529DF7358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Payment", "Services\Payment\E-Commerce.Payment\E-Commerce.Payment.csproj", "{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Payment", "Services\Payment\E-Commerce.Payment\E-Commerce.Payment.csproj", "{CEE9B315-EDBB-4F7C-9B42-745FBE55F2A5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{F371F85B-FDBD-4AE7-897A-8D81761679EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Images", "Services\Images\E-Commerce.Images\E-Commerce.Images.csproj", "{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Images", "Services\Images\E-Commerce.Images\E-Commerce.Images.csproj", "{F9C6BDA9-5422-40A3-BA1D-CE28E5889C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
