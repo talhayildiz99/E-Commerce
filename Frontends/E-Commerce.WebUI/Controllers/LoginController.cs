@@ -15,13 +15,11 @@ namespace E_Commerce.WebUI.Controllers
     public class LoginController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
-		private readonly ILoginService _loginService;
 		private readonly IIdentityService _ıdentityService;
 
-        public LoginController(IHttpClientFactory httpClientFactory, ILoginService loginService, IIdentityService ıdentityService)
+        public LoginController(IHttpClientFactory httpClientFactory, IIdentityService ıdentityService)
         {
             _httpClientFactory = httpClientFactory;
-            _loginService = loginService;
             _ıdentityService = ıdentityService;
         }
 
@@ -32,20 +30,10 @@ namespace E_Commerce.WebUI.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Index(CreateLoginDto createLoginDto)
+		public async Task<IActionResult> Index(SignInDto signInDto)
 		{
-			
-			return View();
-		}
-
-
-		//[HttpPost]
-		public async Task<IActionResult> SignIn(SignInDto signInDto)
-		{
-			signInDto.Username = "talha.yildiz";
-			signInDto.Password = "123456789Bb*";
-			await _ıdentityService.SignIn(signInDto);
-			return RedirectToAction("Index", "User");
+            await _ıdentityService.SignIn(signInDto);
+            return RedirectToAction("Index", "User");
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using E_Commerce.DtoLayer.CatalogDtos.TopDiscountDtos;
+using E_Commerce.WebUI.Services.CatalogServices.TopDiscountServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,41 +12,33 @@ namespace E_Commerce.WebUI.Areas.Admin.Controllers
     [Route("Admin/TopDiscount")]
     public class TopDiscountController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-
-        public TopDiscountController(IHttpClientFactory httpClientFactory)
+        private readonly ITopDiscountService _topDiscountService;
+        public TopDiscountController(ITopDiscountService topDiscountService)
         {
-            _httpClientFactory = httpClientFactory;
+            _topDiscountService = topDiscountService;
+        }
+
+        void TopDiscountViewBagList()
+        {
+            ViewBag.v1 = "Ana Sayfa";
+            ViewBag.v2 = "Özel İndirimler";
+            ViewBag.v3 = "Özel İndirim ve Günün Teklif Listesi";
+            ViewBag.v0 = "Kategori İşlemleri";
         }
 
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            @ViewBag.v1 = "Ana Sayfa";
-            @ViewBag.v2 = "Özel İndirimler";
-            @ViewBag.v3 = "Özel İndirim Listesi";
-            @ViewBag.v0 = "Özel İndirim İşlemleri";
-
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7060/api/TopDiscounts");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultTopDiscountDto>>(jsonData);
-                return View(values);
-            }
-
-            return View();
+            TopDiscountViewBagList();
+            var values = await _topDiscountService.GetAllTopDiscountAsync();
+            return View(values);
         }
 
         [HttpGet]
         [Route("CreateTopDiscount")]
         public IActionResult CreateTopDiscount()
         {
-            @ViewBag.v1 = "Ana Sayfa";
-            @ViewBag.v2 = "Özel İndirimler";
-            @ViewBag.v3 = "Özel İndirim Listesi";
-            @ViewBag.v0 = "Özel İndirim İşlemleri";
+            TopDiscountViewBagList();
             return View();
         }
 
@@ -53,64 +46,32 @@ namespace E_Commerce.WebUI.Areas.Admin.Controllers
         [Route("CreateTopDiscount")]
         public async Task<IActionResult> CreateTopDiscount(CreateTopDiscountDto createTopDiscountDto)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createTopDiscountDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7060/api/TopDiscounts", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "TopDiscount", new { area = "Admin" });
-            }
-            return View();
+            await _topDiscountService.CreateTopDiscountAsync(createTopDiscountDto);
+            return RedirectToAction("Index", "TopDiscount", new { area = "Admin" });
         }
 
         [Route("DeleteTopDiscount/{id}")]
         public async Task<IActionResult> DeleteTopDiscount(string id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync("https://localhost:7060/api/TopDiscounts?id=" + id);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "TopDiscount", new { area = "Admin" });
-            }
-            return View();
+            await _topDiscountService.DeleteTopDiscountAsync(id);
+            return RedirectToAction("Index", "TopDiscount", new { area = "Admin" });
         }
 
-
-        [HttpGet]
         [Route("UpdateTopDiscount/{id}")]
+        [HttpGet]
         public async Task<IActionResult> UpdateTopDiscount(string id)
         {
-            @ViewBag.v1 = "Ana Sayfa";
-            @ViewBag.v2 = "Özel İndirimler";
-            @ViewBag.v3 = "Özel İndirim Listesi";
-            @ViewBag.v0 = "Özel İndirim İşlemleri";
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7060/api/TopDiscounts/" + id);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateTopDiscountDto>(jsonData);
-                return View(values);
-            }
-            return View();
+            TopDiscountViewBagList();
+            var values = await _topDiscountService.GetByIdTopDiscountAsync(id);
+            return View(values);
         }
 
-
-        [HttpPost]
         [Route("UpdateTopDiscount/{id}")]
-
+        [HttpPost]
         public async Task<IActionResult> UpdateTopDiscount(UpdateTopDiscountDto updateTopDiscountDto)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateTopDiscountDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7060/api/TopDiscounts/", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "TopDiscount", new { area = "Admin" });
-            }
-            return View();
+            await _topDiscountService.UpdateTopDiscountAsync(updateTopDiscountDto);
+            return RedirectToAction("Index", "TopDiscount", new { area = "Admin" });
         }
     }
 }

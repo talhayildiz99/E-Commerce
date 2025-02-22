@@ -55,7 +55,9 @@ namespace E_Commerce.IdentityServer
                 ClientName ="ECommerce Visitor User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets= {new Secret("ecommercesecret".Sha256()) },
-                AllowedScopes ={ "CatalogReadPermission" , "CatalogFullPermission", "CommentFullPermission", "ImagesFullPermission", "OcelotFullPermission" }
+                AllowedScopes ={ "CatalogReadPermission" , "CatalogFullPermission", "CommentFullPermission", "ImagesFullPermission", "OcelotFullPermission",
+                IdentityServerConstants.LocalApi.ScopeName, },
+                AllowAccessTokensViaBrowser = true,
             },
 
             //Manager
