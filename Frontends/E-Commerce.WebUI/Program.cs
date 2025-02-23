@@ -1,7 +1,11 @@
 using E_Commerce.WebUI.Handlers;
+using E_Commerce.WebUI.Services.CatalogServices.AboutServices;
 using E_Commerce.WebUI.Services.CatalogServices.CategoryServices;
+using E_Commerce.WebUI.Services.CatalogServices.FeatureServices;
 using E_Commerce.WebUI.Services.CatalogServices.ProductServices;
+using E_Commerce.WebUI.Services.CatalogServices.SliderServices;
 using E_Commerce.WebUI.Services.CatalogServices.TopDiscountServices;
+using E_Commerce.WebUI.Services.CatalogServices.VendorServices;
 using E_Commerce.WebUI.Services.Concrete;
 using E_Commerce.WebUI.Services.Interfaces;
 using E_Commerce.WebUI.Settings;
@@ -66,6 +70,26 @@ builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 builder.Services.AddHttpClient<ITopDiscountService, TopDiscountService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IFeatureSliderService, FeatureSliderService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IFeatureService, FeatureService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IVendorService, VendorService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IAboutService, AboutService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
