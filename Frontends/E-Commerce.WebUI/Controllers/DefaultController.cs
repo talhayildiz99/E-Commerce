@@ -6,6 +6,8 @@ namespace E_Commerce.WebUI.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.directory1 = "Anasayfa"; 
+            ViewBag.directory2 = "Ürün Listesi"; 
             return View();
         }
     }

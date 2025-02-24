@@ -15,12 +15,16 @@ namespace E_Commerce.WebUI.Controllers
         }
         public IActionResult Index(string id)
         {
+            ViewBag.directory1 = "Ürünler";
+            ViewBag.directory2 = "Ürün Listesi";
             ViewBag.i = id;
             return View();
         }
 
         public IActionResult ProductDetail(string id)
         {
+            ViewBag.directory1 = "Ürünler";
+            ViewBag.directory2 = "Ürün Detayları";
             ViewBag.x = id;
             return View();
         }
