@@ -1,4 +1,5 @@
-﻿using E_Commerce.Catalog.Dtos.ContactDtos;
+﻿using E_Commerce.DtoLayer.CatalogDtos.ContactDtos;
+using E_Commerce.WebUI.Services.CatalogServices.ContactServices;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -7,16 +8,17 @@ namespace E_Commerce.WebUI.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-
-        public ContactController(IHttpClientFactory httpClientFactory)
+        private readonly IContactService _contactService;
+        public ContactController(IContactService contactService)
         {
-            _httpClientFactory = httpClientFactory;
+            _contactService = contactService;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.directory1 = "İletişim";
+            ViewBag.directory2 = "Mesaj Gönder";
             return View();
         }
 
@@ -25,15 +27,8 @@ namespace E_Commerce.WebUI.Controllers
         {
             createContactDto.IsRead = false;
             createContactDto.SendDate = DateTime.Now;
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createContactDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7060/api/Contacts", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "Default");
-            }
-            return View();
+            await _contactService.CreateContactAsync(createContactDto);
+            return RedirectToAction("Index", "Default");
         }
     }
 }
