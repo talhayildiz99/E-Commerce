@@ -16,12 +16,20 @@ namespace E_Commerce.WebUI.Controllers
             _basketService = basketService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string code,int discountRate,decimal totalNewPriceWithDiscount)
         {
+            ViewBag.code = code;
+            ViewBag.discountRate = discountRate;
+            ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
             ViewBag.directory1 = "Ürünler";
             ViewBag.directory2 = "Sepetim";
             var values = await _basketService.GetBasket();
-            return View(values);
+            ViewBag.total = values.TotalPrice;
+            var totalPriceWithTax = values.TotalPrice + values.TotalPrice / 100 * 10;  //Yüzde 10 KDV
+            var tax = values.TotalPrice / 100 * 10;
+            ViewBag.totalPriceWithTax = totalPriceWithTax;
+            ViewBag.tax = tax;
+            return View();
         }
 
         public async Task<IActionResult> AddBasketItem(string id)

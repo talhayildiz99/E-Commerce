@@ -1,0 +1,30 @@
+﻿<div class="col-lg-4">
+    <div class="cart-page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="coupon">
+                    <form asp-controller="Discount" asp-action="ConfirmDiscountCoupon" method="post">
+                        <input type="text" name="code" value="@ViewBag.code" placeholder="Kupon Kodu">
+                        <button>Kuponu Uygula</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="cart-summary">
+                    <div class="cart-content">
+                        <h1>Sepet Detayı</h1>
+                        <p>Ara Toplam<span>@ViewBag.total ₺</span></p>
+                        <p>KDV Tutarı<span>@ViewBag.tax ₺</span></p>
+                        <p>İndirim Oranı<span>% @ViewBag.discountRate</span></p>
+                        <h2>Toplam<span>@ViewBag.totalPriceWithTax ₺</span></h2>
+                        <h2>İndirimli Toplam<span>@ViewBag.totalNewPriceWithDiscount ₺</span></h2>
+                    </div>
+                    <div class="cart-btn">
+                        <button>Sepeti Güncelle</button>
+                        <button>Sepeti Onayla</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
