@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using E_Commerce.Discount.Context;
 using E_Commerce.Discount.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Discount.Services
 {
@@ -68,6 +69,18 @@ namespace E_Commerce.Discount.Services
             using (var connection = _dapperContext.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<ResultDiscountCouponDto>(query, parameters);
+                return values;
+            }
+        }
+
+        public int GetDiscountCouponCountRate(string code)
+        {
+            string query = "Select Rate From Coupons Where Code=@code";
+            var parameters = new DynamicParameters();
+            parameters.Add("@code", code);
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                var values = connection.QueryFirstOrDefault<int>(query, parameters);
                 return values;
             }
         }

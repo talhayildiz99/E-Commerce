@@ -2,6 +2,13 @@
     <div class="cart-page-inner">
         <div class="row">
             <div class="col-md-12">
+                @if (TempData["DiscountError"] != null)
+
+                {
+                    <div class="alert alert-danger">
+                        @TempData["DiscountError"]
+                    </div>
+                }
                 <div class="coupon">
                     <form asp-controller="Discount" asp-action="ConfirmDiscountCoupon" method="post">
                         <input type="text" name="code" value="@ViewBag.code" placeholder="Kupon Kodu">

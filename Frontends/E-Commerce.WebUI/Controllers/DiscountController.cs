@@ -25,8 +25,15 @@ namespace E_Commerce.WebUI.Controllers
         {
             var values = await _discountService.GetDiscountCouponCountRate(code);
 
+            if (values == null || values <= 0)
+            {
+                TempData["DiscountError"] = "Geçersiz veya bulunamayan kupon kodu!";
+                return RedirectToAction("Index", "ShoppingCart");
+            }
+
+
             var basketValues = await _basketService.GetBasket();
-            var totalPriceWithTax = basketValues.TotalPrice + basketValues.TotalPrice / 100 * 10;
+            var totalPriceWithTax = basketValues.TotalPrice + basketValues.TotalPrice / 100 * 10; //Yüzde 10 KDV
 
             var totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax / 100 * values);
             // ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
