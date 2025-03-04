@@ -9,13 +9,14 @@
     <div class="container-fluid">
         <div class="row">
 
-            <form method="post">
+
             <div class="col-lg-8">
                 <div class="checkout-inner">
                     <div class="billing-address">
                         <h2>Teslimat ve Fatura Adresi</h2>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-md-6">
                                     <label>Ad</label>
                                     <input class="form-control" type="text" asp-for="Name" placeholder="Adınızı girin">
                                 </div>
@@ -51,84 +52,24 @@
                                     <label>Posta Kodu</label>
                                     <input class="form-control" type="text" asp-for="ZipCode" placeholder="Posta kodunu girin">
                                 </div>
-                        </div>
+                            </div>
+                            <div class="checkout-btn">
+                                <button class="btn btn-primary btn-block">Siparişi Tamamla</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-           
+
             <div class="col-lg-4">
                 <div class="checkout-inner">
 
                     @await Component.InvokeAsync("_OrderSummaryComponentPartial")
 
-
-                    <div class="checkout-payment">
-                        <div class="payment-methods">
-                            <h1>Ödeme Yöntemi</h1>
-                            <div class="payment-method">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-1" name="payment">
-                                    <label class="custom-control-label" for="payment-1">Paypal</label>
-                                </div>
-                                <div class="payment-content" id="payment-1-show">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="payment-method">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-2" name="payment">
-                                    <label class="custom-control-label" for="payment-2">Payoneer</label>
-                                </div>
-                                <div class="payment-content" id="payment-2-show">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="payment-method">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-3" name="payment">
-                                    <label class="custom-control-label" for="payment-3">Check Payment</label>
-                                </div>
-                                <div class="payment-content" id="payment-3-show">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="payment-method">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-4" name="payment">
-                                    <label class="custom-control-label" for="payment-4">Direct Bank Transfer</label>
-                                </div>
-                                <div class="payment-content" id="payment-4-show">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="payment-method">
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-5" name="payment">
-                                    <label class="custom-control-label" for="payment-5">Cash on Delivery</label>
-                                </div>
-                                <div class="payment-content" id="payment-5-show">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkout-btn">
-                            <button>Ödeme Adımına Geç</button>
-                        </div>
-                    </div>
+                    @await Component.InvokeAsync("_PaymentMethodComponentPartial")
 
                 </div>
             </div>
-            </form>
         </div>
     </div>
 </div>
