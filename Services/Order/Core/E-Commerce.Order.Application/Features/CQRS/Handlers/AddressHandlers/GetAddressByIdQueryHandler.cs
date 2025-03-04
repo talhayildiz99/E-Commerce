@@ -25,7 +25,7 @@ namespace E_Commerce.Order.Application.Features.CQRS.Handlers.AddressHandlers
             {
                 AddressID = values.AddressID,
                 City = values.City,
-                Detail = values.Detail,
+                Detail = values.Detail1,
                 District = values.District,
                 UserID = values.UserID
             };
