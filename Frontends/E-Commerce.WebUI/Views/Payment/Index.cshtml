@@ -1,0 +1,230 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kredi Kartı Ödeme</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .payment-container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-wrapper {
+            width: 100%;
+            height: 200px;
+            perspective: 1000px;
+            margin-bottom: 20px; /* KART İLE GİRİŞ ALANI ARASINA BOŞLUK EKLENDİ */
+        }
+
+        .card-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .card-front {
+            background: linear-gradient(to right, #FF5733, #FF8C42);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-back {
+            background: linear-gradient(to right, #FF5733, #FF8C42);
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 20px;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .chip {
+            width: 65px;
+            position: absolute;
+            top: 3px;
+            left: 30px;
+        }
+
+        .card-number, .card-name, .card-expiry, .card-cvv {
+            position: absolute;
+        }
+
+        .card-number {
+            top: 80px;
+            left: 20px;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .card-name {
+            bottom: 20px;
+            left: 20px;
+            font-size: 16px;
+        }
+
+        .card-expiry {
+            bottom: 20px;
+            right: 60px;
+            font-size: 14px;
+        }
+
+        .card-cvv {
+            bottom: 20px;
+            right: 20px;
+            font-size: 14px;
+        }
+
+        .mastercard-logo {
+            width: 55px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        .btn-primary {
+            background-color: #FF5733;
+            border: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+            .btn-primary:hover {
+                background-color: #E94E1B;
+            }
+
+        .container {
+            padding-bottom: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Kredi Kartı ile Ödeme</h2>
+
+        <div class="payment-container">
+            <div class="card-wrapper">
+                <div class="card-container" id="creditCard">
+                    <div class="card-front">
+                        <img src="~/images/chip.png" class="chip" alt="Chip">
+                        <div class="card-number">#### #### #### ####</div>
+                        <div class="card-name">İSİM SOYİSİM</div>
+                        <div class="card-expiry">MM/YY</div>
+                        <img src="~/images/mastercard.png" class="mastercard-logo" alt="Mastercard">
+                    </div>
+
+                    <div class="card-back">
+                        <div class="card-cvv">CVV: <span id="cvv-display">***</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Kart Numarası</label>
+                    <input type="text" class="form-control" id="cardNumber" maxlength="19" placeholder="#### #### #### ####">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Kart Sahibi Adı</label>
+                    <input type="text" class="form-control" id="cardName" placeholder="İsim Soyisim">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Son Kullanma Tarihi</label>
+                        <input type="text" class="form-control" id="cardExpiry" maxlength="5" placeholder="MM/YY">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cardCvv" maxlength="3" placeholder="CVV">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Ödemeyi Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Kart numarasını formatla ve kart üzerine yansıt
+            $("#cardNumber").on("input", function () {
+                let val = $(this).val().replace(/\D/g, "");
+                val = val.replace(/(\d{4})/g, "$1 ").trim();
+                $(this).val(val);
+                $(".card-number").text(val || "#### #### #### ####");
+            });
+
+            // Kart sahibinin adını büyük harfle yansıt
+            $("#cardName").on("input", function () {
+                let val = $(this).val().toUpperCase();
+                $(".card-name").text(val || "İSİM SOYİSİM");
+            });
+
+            // Son kullanma tarihini formatla ve yansıt
+            $("#cardExpiry").on("input", function () {
+                let val = $(this).val().replace(/\D/g, "");
+                if (val.length > 2) {
+                    val = val.substring(0, 2) + "/" + val.substring(2, 4);
+                }
+                $(this).val(val);
+                $(".card-expiry").text(val || "MM/YY");
+            });
+
+            // CVV'yi yansıt
+            $("#cardCvv").on("input", function () {
+                let val = $(this).val().replace(/\D/g, "").substring(0, 3);
+                $(this).val(val);
+                $("#cvv-display").text(val || "***");
+            });
+
+            // CVV alanına tıklanınca kartı çevir
+            $("#cardCvv").on("focus", function () {
+                $("#creditCard").addClass("flipped");
+            });
+
+            // CVV alanından çıkınca kartı geri çevir
+            $("#cardCvv").on("blur", function () {
+                $("#creditCard").removeClass("flipped");
+            });
+        });
+    </script>
+
+</body>
+</html>
