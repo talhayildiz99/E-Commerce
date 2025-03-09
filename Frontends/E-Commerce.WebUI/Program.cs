@@ -15,6 +15,7 @@ using E_Commerce.WebUI.Services.Concrete;
 using E_Commerce.WebUI.Services.DiscountServices;
 using E_Commerce.WebUI.Services.Interfaces;
 using E_Commerce.WebUI.Services.OrderServices.OrderAddressServices;
+using E_Commerce.WebUI.Services.OrderServices.OrderOrderingServices;
 using E_Commerce.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -77,6 +78,11 @@ builder.Services.AddHttpClient<IDiscountService, DiscountService>(opt =>
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 builder.Services.AddHttpClient<IOrderAddressService, OrderAddressService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Order.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+builder.Services.AddHttpClient<IOrderOrderingService, OrderOrderingService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Order.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
