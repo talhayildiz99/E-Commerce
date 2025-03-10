@@ -8,3 +8,4 @@ Basket:   7064
 Comment:  7065
 Payment:  7066
 Images:   7067
+Messages:   7068

@@ -19,6 +19,7 @@ namespace E_Commerce.IdentityServer
            new ApiResource("ResourceBasket"){Scopes={"BasketFullPermission"}},
            new ApiResource("ResourceComment"){Scopes={"CommentFullPermission"}},
            new ApiResource("ResourcePayment"){Scopes={"PaymentFullPermission"}},
+           new ApiResource("ResourceMessage"){Scopes={"MessageFullPermission"}},
            new ApiResource("ResourceImages"){Scopes={"ImagesFullPermission"}},
            new ApiResource("ResourceOcelot"){Scopes={"OcelotFullPermission"}},
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
@@ -41,6 +42,7 @@ namespace E_Commerce.IdentityServer
             new ApiScope("BasketFullPermission","Full authority for basket operations"),
             new ApiScope("CommentFullPermission","Full authority for comment operations"),
             new ApiScope("PaymentFullPermission","Full authority for payment operations"),
+            new ApiScope("MessageFullPermission","Full authority for message operations"),
             new ApiScope("ImagesFullPermission","Full authority for images operations"),
             new ApiScope("OcelotFullPermission","Full authority for ocelot operations"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
@@ -67,7 +69,7 @@ namespace E_Commerce.IdentityServer
                 ClientName ="ECommerce Manager User",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets= {new Secret("ecommercesecret".Sha256()) },
-                AllowedScopes ={ "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "BasketFullPermission" , "CommentFullPermission" , "PaymentFullPermission", "ImagesFullPermission", "OcelotFullPermission", "OrderFullPermission",
+                AllowedScopes ={ "CatalogReadPermission", "CatalogFullPermission", "DiscountFullPermission", "BasketFullPermission" , "CommentFullPermission" , "PaymentFullPermission", "ImagesFullPermission", "OcelotFullPermission", "OrderFullPermission", "MessageFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
