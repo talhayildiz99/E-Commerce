@@ -9,5 +9,6 @@ namespace E_Commerce.Cargo.DataAccessLayer.Abstract
 {
     public interface ICargoCustomerDal:IGenericDal<CargoCustomer>
     {
+        CargoCustomer GetCargoCustomerById(string id);
     }
 }

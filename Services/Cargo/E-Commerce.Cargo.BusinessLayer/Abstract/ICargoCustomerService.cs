@@ -9,5 +9,6 @@ namespace E_Commerce.Cargo.BusinessLayer.Abstract
 {
     public interface ICargoCustomerService:IGenericService<CargoCustomer>
     {
+        CargoCustomer TGetCargoCustomerById(string id);
     }
 }

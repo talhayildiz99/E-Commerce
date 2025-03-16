@@ -1,0 +1,51 @@
+﻿@model GetCargoCustomerByIdDto
+
+@{
+    ViewData["Title"] = "UserAddressInfo";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Bilgi</th>
+                                <th>Detay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Kullanıcı ID</strong></td>
+                                <td>@Model.cargoCustomerId</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kullanıcı Adı Soyadı</strong></td>
+                                <td>@Model.name @Model.surname</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email Adresi</strong></td>
+                                <td>@Model.email</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Telefon</strong></td>
+                                <td>@Model.phone</td>
+                            </tr>
+                            <tr>
+                                <td><strong>İlçe - Şehir</strong></td>
+                                <td>@Model.district, @Model.city</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adres</strong></td>
+                                <td>@Model.address</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
