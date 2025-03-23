@@ -19,10 +19,15 @@ using E_Commerce.WebUI.Services.Interfaces;
 using E_Commerce.WebUI.Services.MessageServices;
 using E_Commerce.WebUI.Services.OrderServices.OrderAddressServices;
 using E_Commerce.WebUI.Services.OrderServices.OrderOrderingServices;
+using E_Commerce.WebUI.Services.StatisticServices.CatalogStatisticServices;
+using E_Commerce.WebUI.Services.StatisticServices.DiscountStatisticServices;
+using E_Commerce.WebUI.Services.StatisticServices.MessageStatisticServices;
+using E_Commerce.WebUI.Services.StatisticServices.UserStatisticServices;
 using E_Commerce.WebUI.Services.UserIdentityServices;
 using E_Commerce.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MultiShop.WebUI.Services.StatisticServices.UserStatisticServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +75,30 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+//Statistic
+
+builder.Services.AddHttpClient<ICatalogStatisticService, CatalogStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+builder.Services.AddHttpClient<IMessageStatisticService, MessageStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Message.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+builder.Services.AddHttpClient<IDiscountStatisticService, DiscountStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Discount.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+builder.Services.AddHttpClient<IUserStatisticService, UserStatisticService>(opt =>
+{
+    opt.BaseAddress = new Uri(values.IdentityServerUrl);
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+//Statistic
 
 builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
 {

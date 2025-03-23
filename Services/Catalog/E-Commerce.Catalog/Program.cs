@@ -6,6 +6,7 @@ using E_Commerce.Catalog.Services.FeatureSliderServices;
 using E_Commerce.Catalog.Services.ProductDetailServices;
 using E_Commerce.Catalog.Services.ProductImageServices;
 using E_Commerce.Catalog.Services.ProductServices;
+using E_Commerce.Catalog.Services.StatisticServices;
 using E_Commerce.Catalog.Services.TopDiscountServices;
 using E_Commerce.Catalog.Services.VendorServices;
 using E_Commerce.Catalog.Settings;
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<IVendorService, VendorService>();
 builder.Services.AddScoped<IAboutService, AboutService>();
 builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddScoped<IStatisticservice, Statisticservice>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
