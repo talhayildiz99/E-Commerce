@@ -27,6 +27,7 @@ using E_Commerce.WebUI.Services.UserIdentityServices;
 using E_Commerce.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Razor;
 using MultiShop.WebUI.Services.StatisticServices.UserStatisticServices;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,7 +55,7 @@ builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddScoped<ILoginService, LoginService>();
-builder.Services.AddHttpClient<IIdentityService,IdentityService>();
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 
 
 // Add services to the container.
@@ -196,6 +197,16 @@ builder.Services.AddHttpClient<ICommentService, CommentService>(opt =>
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Comment.Path}");
 }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
+
+builder.Services.AddLocalization(opt =>
+{
+    opt.ResourcesPath = "Resources";
+});
+
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -216,6 +227,11 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+var supportedCultures = new[] { "en", "tr" };
+var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[1]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 app.MapControllerRoute(
     name: "default",
